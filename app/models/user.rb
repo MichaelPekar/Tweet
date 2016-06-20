@@ -1,13 +1,16 @@
 class User < ActiveRecord::Base
-  # has_many :posts, dependent: :destroy
-  has_and_belongs_to_many :users,
+  has_many :relationships, foreign_key: :followed_id
+  has_many :revers_relationships, class_name: Relationship, foreign_key: :follower_id
+  has_many :followers, through: :relationships
+  has_many :followeds, through: :revers_relationships
+
   attr_accessor :password
   before_save :encrypt_password
 
-  validates_confirmation_of :password
-  validates_presence_of :password, on: :create
-  validates_presence_of :email, :name
-  validates_uniqueness_of :email, :name
+  # validates_confirmation_of :password
+  # validates_presence_of :password, on: :create
+  # validates_presence_of :email, :name
+  # validates_uniqueness_of :email, :name
 
   def self.authenticate(name, email, password)
     user = find_by_email(email)
