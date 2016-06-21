@@ -1,5 +1,7 @@
-<% if notice %>
-
-<% end %>
-
 <h1>Congratulation!!!</h1>
+<table>
+  <h1>All users:</h1>
+  <% @users.each do |user| %>
+      Name: <%= user.name %><br>
+  <% end %>
+</table>

@@ -11,6 +11,15 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def show
+    @user = User.select(:name, :email).find_by(id: params[:id])
+  end
+
+  def index
+    @users = User.all
+  end
+
   private
 
   def user_params

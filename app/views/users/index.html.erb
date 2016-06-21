@@ -1,0 +1,13 @@
+
+<ul>
+<% @users.each do |user|%>
+    <li><%=link_to user.name, user_path(user) %></li>
+      <% if Relationship.create(follower_id: self.id, followed_id: user_id) %>
+                if User
+
+            <li><%= button_to "Follow", controller: 'followers', action: 'create', method: :post, id: user.id %>
+      <% else %>
+            <li><%= button_to "Unfollow", follower_path(id: user.id), method: :delete %>
+      <% end %>
+<% end %>
+</ul>
