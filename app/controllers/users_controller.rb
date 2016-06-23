@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.select(:name, :email).find_by(id: params[:id])
+    @user = User.select(:id, :name, :email).find_by(id: params[:id])
   end
 
   def index

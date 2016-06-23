@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   # has_many :followers, through: :relationships
   # has_many :followeds, through: :revers_relationships
 
+  has_many :posts
+
   attr_accessor :password
   before_save :encrypt_password
 
