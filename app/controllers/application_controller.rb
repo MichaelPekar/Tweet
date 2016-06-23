@@ -15,3 +15,5 @@ class ApplicationController < ActionController::Base
       redirect_to log_in_path if current_user == nil
   end
 end
+
+

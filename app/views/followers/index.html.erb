@@ -3,12 +3,13 @@
 <ul>
   <% @followeds.each do |followed| %>
     <li><%= followed.name %></li>
-  <% end %>
+
+      <% end %>
 </ul>
 
 <h1>People you are following:</h1>
 
-<ul>
+<ul>+
   <% @followers.each do |follower| %>
       <li><%= follower.name %></li>
   <% end %>

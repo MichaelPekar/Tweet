@@ -22,17 +22,17 @@ class User < ActiveRecord::Base
   end
 
   def followers
-    ids = Relationship.where(follower_id: self.id).pluck(:id)
+    ids = Relationship.where(follower_id: self.id).pluck(:followed_id)
     User.where(id: ids)
   end
 
-  def followeds
-    ids = Relationship.where(followed_id: self.id).pluck(:id)
+  def following
+    ids = Relationship.where(followed_id: self.id).pluck(:follower_id)
     User.where(id: ids)
   end
 
   def add_follower(user_id)
-    Relationship.create(follower_id: self.id, followed_id: user_id)
+    Relationship.create(follower_id: user_id, followed_id: self.id)
   end
 
   def unfollow(user_id)
@@ -46,4 +46,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
