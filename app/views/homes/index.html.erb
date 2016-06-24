@@ -1,7 +1,15 @@
-<h1>Congratulation!!!</h1>
 <table>
-  <h1>All users:</h1>
-  <% @users.each do |user| %>
-      Name: <%= user.name %><br>
+  <h2>News feed:</h2>
+  <% @following.each do |user| %>
+      <% user.posts.each do |post| %>
+          <b>
+            Author: <%= link_to user.name, user_path(user) %><br>
+            Titile:<%= post.title %><br>
+          </b>
+          Body: <%= post.body %><br>
+          <% post.comments.each do |comment| %>
+            <%= comment.body %>
+          <% end %>
+      <% end %>
   <% end %>
 </table>

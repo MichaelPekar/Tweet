@@ -1,0 +1,7 @@
+<ul>
+  <% @comments.each do |comment| %>
+      <li><%= comment.title %></li>
+      <li><%= comment.body %></li>
+<% end %>
+  <li><%= link_to "Create", new_post_comment %></li>
+</ul>
