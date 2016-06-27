@@ -1,13 +1,20 @@
 <h2>About me:</h2>
 <ul>
-  <li>User Name: <%= @user.name %></li>
-  <li>Email: <%= @user.email %></li>
+  <li>
+        <b>User Name:</b><%= @user.name %></br>
+        <b>Email:</b><%= @user.email %>
+        <%= image_tag @user.avatar.url(:thumb) %>
+  </li>
 </ul>
+<%= button_to "Update profile", edit_user_path(id: @user.id), method: :get %></li>
 
 <h2>Posts:</h2>
 <ul>
   <% @user.posts.each do |post| %>
-      <li><%= post.title %></li>
-      <li><%= post.body %></li>
+      <b>Title:</b><li><%= post.title %></li>
+      <b>Body:</b><li><%= post.body %></li>
+      <% post.comments.each do |comment| %>
+          <b>Comment:</b><li><%= comment.body %></li>
+        <% end %>
   <% end %>
 </ul>

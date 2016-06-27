@@ -1,15 +1,27 @@
 <table>
   <h2>News feed:</h2>
-  <% @following.each do |user| %>
-      <% user.posts.each do |post| %>
-          <b>
-            Author: <%= link_to user.name, user_path(user) %><br>
-            Titile:<%= post.title %><br>
-          </b>
-          Body: <%= post.body %><br>
-          <% post.comments.each do |comment| %>
-            <%= comment.body %>
-          <% end %>
-      <% end %>
-  <% end %>
+    <ul>
+        <% @following.each do |user| %>
+            <% user.posts.each do |post| %>
+                <li>
+                  <b>Author:</b><%= link_to user.name, user_path(user) %><br>
+                  <b>Titile:</b><%= post.title %><br>
+                  <b>Body:</b><%= post.body %><br>
+                </li>
+              <% if user.posts.where(id: post.id) %>
+                  <tr>
+                    <%= button_to "Delete post", post_path(id: post.id), method: :delete %>
+                    <%= button_to "Create comment", new_post_comment_path(post_id: post.id), method: :get %>
+                  </tr>
+              <% end %>
+
+                <% post.comments.each do |comment| %>
+                      <li><b>Comment:</b><%= comment.body %></li>
+                  <% if post.comments.where(id: comment.id) %>
+                      <%= button_to "Delete comment", post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
+                  <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </ul>
 </table>

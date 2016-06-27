@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def requires_authentication
+    puts '+++++++++++++++++++++++'
+    puts current_user
+    puts '+++++++++++++++++++++++'
       redirect_to log_in_path if current_user == nil
   end
 end

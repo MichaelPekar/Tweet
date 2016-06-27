@@ -1,5 +1,9 @@
 <h1>Sign Up</h1>
 
+<!--<%= form_for @user, url: users_path, html: { multipart: true } do |form| %>-->
+    <!--<%= form.file_field :avatar %>-->
+<!--<% end %>-->
+
 <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
         <div class="error_messages">
@@ -11,6 +15,8 @@
           </ul>
         </div>
     <% end %>
+
+    <%= f.file_field :avatar %>
     <p>
       <%= f.label :name %><br />
       <%= f.text_field :name %>
