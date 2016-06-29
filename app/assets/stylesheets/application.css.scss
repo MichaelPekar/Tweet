@@ -14,55 +14,45 @@
  *= require_self
  */
 #banner {
-  background: #a8cca8;
+   background: #a8cca8;
   padding: 10px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #f8f7ff;
-  text-align: center;
-
-  img {
-    float: left;
-  }
+  text-align: match-parent;
 }
 
-#notice {
-  color: #000 !important;
-  border: 2px solid red;
+#main {
+  margin-right: auto;
   padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
+  background: white;
+  display: flex;
+  float: left;
+  width: 100%;
+
+  .container {
+    border: ridge;
+    /* float: left; */
+    width: 50%;
+    margin-left: 1%;
+  }
 }
 
-#columns {
-  background: #a8cca8;
+//#about_me {
+//  margin-right: 17em;
+//  padding: 1em;
+//  background: white;
+//}
+#about_me {
+  border: ridge;
+  width: 200px;
+  height: 275px;
+  /* margin-left: auto; */
+  padding: 20px;
+  /* position: relative; */
+  text-align: inherit;
 
-  #main {
-    color: #000000;
-    margin-left: 17em;
-    padding: 1em;
-    background: white;
-  }
-
-  #side {
-    float: left;
-    padding: 1em 2em;
-    width: 13em;
-    background: #a8cca8;
-
-    ul {
-      padding: 0;
-
-      li {
-        list-style: none;
-
-        a {
-          color: #bfb;
-          font-size: small;
-
-        }
-      }
-    }
+  #avatar {
+    margin: auto;
   }
 }
