@@ -4,9 +4,17 @@
 
 #log_in {
   background: #a8cca8;
-  padding: 1px;
-  border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #f8f7ff;
   text-align: center;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: ridge;
+  font-size: 23px;
+  width: 500px;
+}
+
+div {
+  display: block;
 }

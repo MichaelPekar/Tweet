@@ -1,16 +1,62 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/html">-->
+<!--<head>-->
+  <!--<title>Tweet</title>-->
+  <!--<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>-->
+  <!--<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+  <!--<%= csrf_meta_tags %>-->
+<!--</head>-->
+<!--<body class="<%= controller.controller_name %>">-->
+  <!--<% flash.each do |name, msg| %>-->
+      <!--<%= content_tag :div, msg, :id => "flash_#{name}" %>-->
+  <!--<% end %>-->
+  <!--<div id="banner">-->
+    <!--<table>-->
+      <!--<tr>-->
+        <!--<td><%= image_tag("Logo.png", size: "100") %></td>-->
+        <!--<td><strong><%= @page_title || "T-W-E-E-T" %></strong> </br>we are always happy to see you here)</td>-->
+      <!--</tr>-->
+    <!--</table>-->
+  <!--</div>-->
+
+  <!--<div id="main">-->
+    <!--<% if current_user != nil %>-->
+      <!--<div id="about_me">-->
+        <!--<h2>About me:</h2>-->
+        <!--<ul>-->
+          <!--<li><b>User Name: </b><%= current_user.name %></br></li>-->
+          <!--<li><b>Email: </b><%= current_user.email %></li>-->
+        <!--</ul>-->
+
+        <!--<div id="avatar">-->
+          <!--<%= image_tag current_user.avatar.url(:thumb) %>-->
+        <!--</div>-->
+
+        <!--<div>-->
+          <!--<%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--<% end %>-->
+
+    <!--<div class="container">-->
+      <!--<%= yield %>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-<head>
-  <title>Tweet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body class="<%= controller.controller_name %>">
-  <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-  <div id="banner">
+
+<div id="container">
+  <div id="header">
+    <head>
+      <title>Tweet</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
+
     <table>
       <tr>
         <td><%= image_tag("Logo.png", size: "100") %></td>
@@ -19,28 +65,55 @@
     </table>
   </div>
 
-  <div id="main">
-    <% if current_user != nil %>
-      <div id="about_me">
-        <h2>About me:</h2>
-        <ul>
-          <li><b>User Name: </b><%= current_user.name %></br></li>
-          <li><b>Email: </b><%= current_user.email %></li>
-        </ul>
+  <div id="nav">
+    <table>
+      <tr>
+        <td><a href="http://www....">Home</a></td>
+        <td><a href="http://www..../faq">Questions</a></td>
+        <td><a href="http://www..../news">News</a></td>
+        <td><a href="http://www..../contact">Contact</a></td>
+      </tr>
+    </table>
+  </div>
 
-        <div id="avatar">
-          <%= image_tag current_user.avatar.url(:thumb) %>
-        </div>
-
-        <div>
-          <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
-        </div>
-      </div>
+  <body class="<%= controller.controller_name %>">
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
 
-    <div class="container">
-      <%= yield %>
+    <div id="main">
+      <div id="main_left">
+        <% if current_user != nil %>
+          <div id="about_me">
+            <h2>About me:</h2>
+            <div id="namemail_right">
+              <ul>
+                <li><b>User Name: </b><%= current_user.name %></br></li>
+                <li><b>Email: </b><%= current_user.email %></li>
+                <div id="bupdate">
+                  <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
+                </div>
+              </ul>
+            </div>
+
+            <div id="avatar">
+              <%= image_tag current_user.avatar.url(:thumb) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="main_right">
+        <%= yield %>
+      </div>
     </div>
-  </div>
-</body>
-</html>
+
+    <div id="footer">
+      © 2016 MichaelPekar, Inc
+    </div>
+  </body>
+</div>
+
+
+
+
