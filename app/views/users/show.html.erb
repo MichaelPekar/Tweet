@@ -1,10 +1,36 @@
-<h2>Posts:</h2>
-<ul>
-  <% @user.posts.each do |post| %>
-      <b>Title:</b><li><%= post.title %></li>
-      <b>Body:</b><li><%= post.body %></li>
-      <% post.comments.each do |comment| %>
-          <b>Comment:</b><li><%= comment.body %></li>
+<div class="posts">
+  <h2>Posts:</h2>
+  <div class="button">
+    <%= button_to "Create post", new_post_path, method: :get %>
+  </div>
+
+  <div class="post">
+    <% @user.posts.each do |post| %>
+      <div class="post_body">
+        <b>Titile:</b><%= post.title %><br>
+        <b>Body:</b><%= post.body %><br>
+
+        <div class="more-info-button">
+          <%= button_to "Create comment", new_post_comment_path(post_id: post.id), method: :get %>
+          <% if @user.posts.find_by(id: post.id, user_id: current_user.id) %>
+            <tr>
+              <%= button_to "Update post", edit_post_path(id: post.id), method: :get %>
+              <%= button_to "Delete post", post_path(id: post.id), method: :delete %>
+            </tr>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="comment">
+        <% post.comments.each do |comment| %>
+          <div class="comment_body">
+            <b>Comment:</b><%= comment.body %>
+            <% if post.comments.find_by(id: comment.id, user_id: current_user.id) %>
+                <%= button_to "Delete comment", post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
+            <% end %>
+          </div>
         <% end %>
-  <% end %>
-</ul>
+      </div>
+    <% end %>
+  </div>
+</div>

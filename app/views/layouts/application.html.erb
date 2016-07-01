@@ -66,14 +66,17 @@
   </div>
 
   <div id="nav">
-    <table>
-      <tr>
-        <td><a href="http://www....">Home</a></td>
-        <td><a href="http://www..../faq">Questions</a></td>
-        <td><a href="http://www..../news">News</a></td>
-        <td><a href="http://www..../contact">Contact</a></td>
-      </tr>
-    </table>
+    <% if current_user %>
+      <table>
+        <tr>
+          <td><%= link_to "Home", root_path, method: :get %></td>
+          <td><%= link_to "My ralationship", followers_path, method: :get %></td>
+          <td><%= link_to "My posts", user_path(id: current_user.id), method: :get %></td>
+          <td><%= link_to "Users", users_path, method: :get %></td>
+          <td><%= link_to "Log out", log_out_path, method: :get %></td>
+        </tr>
+      </table>
+    <% end %>
   </div>
 
   <body class="<%= controller.controller_name %>">
@@ -107,11 +110,10 @@
         <%= yield %>
       </div>
     </div>
-
-    <div id="footer">
-      © 2016 MichaelPekar, Inc
-    </div>
   </body>
+</div>
+<div id="footer">
+  © 2016 MichaelPekar, Inc
 </div>
 
 

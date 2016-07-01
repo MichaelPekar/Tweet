@@ -22,6 +22,12 @@ before_action :find_post
     end
   end
 
+  def update
+    if @post.save
+      redirect_to root_path, flash: {succes: 'Post updated'}
+    end
+  end
+
   def destroy
     if current_user.posts.where(id: @post.id )
       @post.destroy

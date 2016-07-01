@@ -2,7 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .post {
-  background-color: green;
-  padding: 10px;
-  border-radius: 20px;
+  //padding: 10px;
+  border-radius: 10px;
+
+  .autor {
+    padding: 10px;
+  }
+
+  .post_body {
+    width: 704px;
+    background-color: #a8cca8;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: #F0F8FF;
+    border-style: groove;
+  }
+
+  .more-info-button {
+    display: inline-flex;
+  }
+
+  .comment {
+
+    .comment_body {
+      display: table;
+      background-color: #fff29f;
+      padding: 10px;
+      border-radius: 10px;
+      border-color: #F0F8FF;
+      border-style: groove;
+      text-align: right;
+      max-width: 500px;
+    }
+  }
 }

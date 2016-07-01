@@ -55,6 +55,12 @@
   overflow:auto;
 }
 
+#flash_succes {
+  text-align: center;
+  border: ridge;
+  background-color: chartreuse;
+}
+
 #header {
   height:90px;
 
@@ -97,13 +103,19 @@
   padding-right: 20px;
 
   #about_me {
+    background-color: #ffc8a7;
+    border-radius: 10px;
+    padding-left: 10px;
 
     #namemail_right {
       float: right;
       display: block;
+      background-color: #ffc8a7;
+      border-radius: 10px;
+      padding-right: 17px;
 
       #bupdate {
-        margin-top: 26px;
+        margin-top: 10px;
         margin-left: -16px;
       }
     }
@@ -122,4 +134,8 @@
   height:18px;
   text-align: -webkit-center;
   background: #a8cca8;
+  width:1100px;
+  margin:0 auto;
+  overflow:auto;
+  margin-top: 10px;
 }
