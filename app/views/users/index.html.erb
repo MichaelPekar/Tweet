@@ -1,12 +1,14 @@
-
-
-<% @users.each do |user|%>
-    <%=link_to user.name, user_path(user) %>
+<div class="users-containers">
+  <% @users.each do |user|%>
+    <div class="user">
       <%= image_tag current_user.avatar.url(:thumb) %>
+      <br>
+      <%=link_to user.name, user_path(user) %>
       <% if current_user.following.include?(user) %>
-          <%= button_to "Unfollow", follower_path(id: user.id), method: :delete %>
+          <%= button_to "Unfollow", follower_path(id: user.id), method: :delete, :class => 'green' %>
       <% else %>
-          <%= button_to "Follow", controller: 'followers', action: 'create', method: :post, id: user.id %>
+          <%= button_to "Follow", controller: 'followers', action: 'create', method: :post, id: user.id, :class => 'red' %>
       <% end %>
-<% end %>
-</ul>
+    </div>
+  <% end %>
+</div>

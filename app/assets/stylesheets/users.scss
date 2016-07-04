@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .posts {
-  //padding: 10px;
   border-radius: 10px;
+
   .button {
     margin-bottom: 10px;
     .button_to {
@@ -41,6 +41,33 @@
       max-width: 500px;
     }
   }
+}
 
+.users-containers {
+  -webkit-column-count: 4;
+  padding: 10px;
 
+  .user {
+    text-align: center;
+    background-color: #dde9ff;
+    border-style: groove;
+    border-radius: 10px;
+    margin-bottom: 10PX;
+
+    img {
+      padding: 10px;
+    }
+
+    .button_to {
+      padding: 10px;
+
+      input[value = Follow] {
+        background-color: #8eff86;
+      }
+
+      input[value = Unfollow] {
+        background-color: #ffa7a9;
+      }
+    }
+  }
 }
