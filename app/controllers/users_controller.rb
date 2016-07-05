@@ -16,7 +16,12 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(user_params)
-    redirect_to user_path(id: current_user.id)
+
+    respond_to do |format|
+      format.html {}
+      format.json { render json: current_user.to_json }
+    end
+    # redirect_to user_path(id: current_user.id)
   end
 
   def show

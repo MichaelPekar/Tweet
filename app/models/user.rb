@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # has_many :followers, through: :relationships
   # has_many :followeds, through: :revers_relationships
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: '/images/default-avatar-:style.png'
   validates_attachment :avatar,
                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
   has_many :posts

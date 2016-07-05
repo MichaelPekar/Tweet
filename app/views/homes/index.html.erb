@@ -10,8 +10,8 @@
           </div>
 
           <div class="post_body">
-            <b>Titile:</b><%= post.title %><br>
-            <b>Body:</b><%= post.body %><br>
+            <b>Titile: </b><%= post.title %><br>
+            <b>Body: </b><%= post.body %><br>
 
             <div class="more-info-button">
               <%= button_to "Create comment", new_post_comment_path(post_id: post.id), method: :get %>
@@ -28,7 +28,7 @@
             <% post.comments.each do |comment| %>
               <div class="comment_body">
                 <%=  %>
-                <b>Comment:</b><%= comment.body %>
+                <b><%= comment.user.name %>: </b><%= comment.body %>
                 <% if post.comments.find_by(id: comment.id, user_id: current_user.id) %>
                     <%= button_to "Delete comment", post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
                 <% end %>

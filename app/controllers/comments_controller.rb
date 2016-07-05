@@ -7,14 +7,14 @@ before_action :find_comment
   end
 
   def index
-    @comments = Comment.all
+    @comments = @post.comments
   end
 
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
       @post.comments << @comment
-      redirect_to post_path(id: @post.id), flash: {succes: 'Comment created'}
+      redirect_to post_comments_path(@post), flash: {succes: 'Comment created'}
     else
       render :new
     end
@@ -23,7 +23,7 @@ before_action :find_comment
   def destroy
     if current_user.comments.where(id: @comment.id)
       @comment.destroy
-      redirect_to post_path(id: @post.id)
+      redirect_to :back, flash: {succes: 'Comment deleted'}
     end
   end
 

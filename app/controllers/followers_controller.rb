@@ -3,11 +3,13 @@ class FollowersController < ApplicationController
   def index
     @followeds = current_user.following
     @followers = current_user.followers
+    respond_to do |format|
+      format.html { }
+      format.json { render json: @followers.to_json }
+    end
     # ids = Relationship.where(follower_id: self.id).pluck(:id)
     # @followeds =  User.where(id: ids)
     # @followeds =  User.find_by(id: params[:id]).followers
-
-
   end
 
   def create

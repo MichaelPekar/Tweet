@@ -10,7 +10,9 @@
   }
 
   .post_body {
-    width: 704px;
+    display: block;
+    word-wrap: break-word;
+    max-width: 704px;
     background-color: #a8cca8;
     padding: 10px;
     border-radius: 10px;
@@ -25,7 +27,8 @@
   .comment {
 
     .comment_body {
-      display: table;
+      display: block;
+      word-wrap: break-word;
       background-color: #fff29f;
       padding: 10px;
       border-radius: 10px;
