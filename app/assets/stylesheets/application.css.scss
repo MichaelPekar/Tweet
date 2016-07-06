@@ -48,11 +48,17 @@
 //    margin: auto;
 //  }
 //}
+body {
+  //background-image: url("nice_background_blog-2.jpg");
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+}
 
 #container {
   width:1100px;
   margin:0 auto;
   overflow:auto;
+  //background-image: url("nice_background_blog-2.jpg")
 }
 
 #flash_succes {
@@ -62,39 +68,68 @@
 }
 
 #header {
-  height:90px;
-
-  background: #a8cca8;
-  padding: 10px;
+  background-image: url("nice_background_blog-2.jpg");
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #f8f7ff;
   text-align: -webkit-center;
 }
+
+//#nav {
+//  overflow:auto;
+//  background: #a8cca8;
+//  text-align: center;
+//  font-size: medium;
+//  margin: 0px;
+//  padding-left: 450px;
+//  padding-right: 450px;
+//}
+//
+//#nav table {
+//  list-style:none;
+//  height:30px;
+//  padding:0px;
+//  margin:0px;
+//}
+//#nav table tr {
+//  float:left;
+//  margin:10px;
+//}
+
 #nav {
-  overflow:auto;
-  background: #a8cca8;
-  text-align: center;
-  font-size: medium;
-  margin: 0px;
-  padding-left: 450px;
-  padding-right: 450px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a8cca8;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+    font-size: 21px;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #1d7f1d;
+  }
 }
-#nav table {
-  list-style:none;
-  height:30px;
-  padding:0px;
-  margin:0px;
-}
-#nav table tr {
-  float:left;
-  margin:10px;
-}
+
 #main {
   overflow:auto;
   margin-top:3px;
   width: 100%;
 }
+
 #main_left {
   float:left;
   width:350px;

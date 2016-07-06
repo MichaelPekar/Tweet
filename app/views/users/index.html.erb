@@ -1,7 +1,7 @@
 <div class="users-containers">
   <% @users.each do |user|%>
     <div class="user">
-      <%= image_tag current_user.avatar.url(:medium) %>
+      <%= image_tag current_user.avatar.url(:thumb) %>
       <br>
       <%=link_to user.name, user_path(user) %>
       <% if current_user.following.include?(user) %>

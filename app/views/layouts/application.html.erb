@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
 
 <div id="container">
   <div id="header">
@@ -8,28 +7,31 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
-    </head>
-
-    <table>
-      <tr>
-        <td><%= image_tag("Logo.png", size: "100") %></td>
-        <td><strong><%= @page_title || "T-W-E-E-T" %></strong> </br>we are always happy to see you here)</td>
-      </tr>
-    </table>
-  </div>
-
-  <div id="nav">
-    <% if current_user %>
-      <table>
+      <div class="logo">
+        <table>
         <tr>
-          <td><%= link_to "Home", root_path, method: :get %></td>
-          <td><%= link_to "My ralationship", followers_path, method: :get %></td>
-          <td><%= link_to "My posts", user_path(id: current_user.id), method: :get %></td>
-          <td><%= link_to "Users", users_path, method: :get %></td>
-          <td><%= link_to "Log out", log_out_path, method: :get %></td>
+          <td><%= image_tag("Logo.png", size: "100") %></td>
+          <td><strong><%= @page_title || "T-W-E-E-T" %></strong></td>
         </tr>
-      </table>
-    <% end %>
+        </table>
+      </div>
+
+      <div id="nav">
+        <% if current_user %>
+            <ul>
+              <li><a href="#home"><%= link_to "Home", root_path, method: :get %></a></li>
+              <li><a href="#news"><%= link_to "My ralationship", followers_path, method: :get %></a></li>
+              <li><a href="#contact"><%= link_to "My posts", user_path(id: current_user.id), method: :get %></a></li>
+              <li><a href="#contact"><%= link_to "Users", users_path, method: :get %></a></li>
+              <li style="float:right">
+                <a class="active" href="#about">
+                  <%= link_to "Log out", log_out_path, method: :get %>
+                </a>
+              </li>
+            </ul>
+        <% end %>
+      </div>
+    </head>
   </div>
 
   <body class="<%= controller.controller_name %>">
