@@ -73,3 +73,49 @@
   }
 }
 
+
+
+
+
+.card-container {
+  display: table;
+  .card {
+    background: #ffffff;
+    height: 200px;
+    width: 130px;
+    margin: 10px;
+
+    .name {
+      text-decoration: none;
+      color: #1d7f1d;
+    }
+  }
+  #follow {
+    text-align: center;
+    form.button_to {
+      input {
+        color: white;
+        display: block;
+        margin: -14px auto;
+        font-size: .8em;
+        font-weight: 700;
+        background: -moz-linear-gradient(top, #b9c5dd 0%, #a4b0cb);
+        -moz-border-radius: 5px;
+        -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+        line-height: 1.42857143;
+        -ms-touch-action: manipulation;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background-color: #1D7F1D;
+        height: 30px;
+      }
+      input[value=Unfollow] {
+        background-color: #7f1a1d;
+
+      }
+    }
+  }
+}

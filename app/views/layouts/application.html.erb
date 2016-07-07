@@ -42,22 +42,39 @@
     <div id="main">
       <div id="main_left">
         <% if current_user != nil %>
-          <div id="about_me">
-            <h2>About me:</h2>
-            <div id="namemail_right">
-              <ul>
-                <li><b>User Name: </b><%= current_user.name %></br></li>
-                <li><b>Email: </b><%= current_user.email %></li>
+            <div class="card">
+              <div class="profile">
+                <%= image_tag current_user.avatar.url(:thumb) %>
+                <div class="border"></div>
+              </div>
+              <div class="name"><p><a href="#"><%= current_user.name %></a></p></div>
+              <div class="email"><p><a href="#"><%= current_user.email %></a></p></div>
+
+              <div class="numbers">
+
+                <table id="stats">
+                  <tbody>
+                  <tr>
+                    <td><%= current_user.posts.count%></td>
+                    <td>POSTS</td>
+                  </tr>
+                  <tr>
+                    <td><%= current_user.followers.count%></td>
+                    <td>FOLLOWERS</td>
+                  </tr>
+                  <tr>
+                    <td><%= current_user.following.count%></td>
+                    <td>FOLLOWED</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="divider"></div>
+
                 <div id="bupdate">
                   <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
                 </div>
-              </ul>
+              </div>
             </div>
-
-            <div id="avatar">
-              <%= image_tag current_user.avatar.url(:thumb) %>
-            </div>
-          </div>
         <% end %>
       </div>
 
@@ -70,8 +87,3 @@
     © 2016 MichaelPekar, Inc
   </div>
 </div>
-
-
-
-
-
