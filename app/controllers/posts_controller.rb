@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 before_action :find_post
 before_action :find_notification
+after_action :add_nottification, only: :create
 
   def new
     @post = Post.new
@@ -17,7 +18,6 @@ before_action :find_notification
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      create_notification(@user, current_user, 'create', @post)
       redirect_to root_path, flash: {succes: 'Post created'}
     else
       render :new
@@ -49,5 +49,11 @@ before_action :find_notification
 
   def find_notification
     @notification = Notification.find_by(id: params[:id])
+  end
+
+  def add_nottification
+    current_user.followers.each do |user|
+      create_notification(user, current_user, @post)
+    end
   end
 end

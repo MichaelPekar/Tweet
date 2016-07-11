@@ -69,13 +69,22 @@
                   </tbody>
                 </table>
                 <div class="divider"></div>
+              </div>
 
-                <div id="bupdate">
-                  <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
-                </div>
+              <div class="notification">
+                <% if current_user.notifications.count != 0 %>
+                  <%= link_to current_user.notifications.count, root_path, method: :get %>
+                  <%= image_tag("notification.png", size: "30") %>
+                <% end %>
+
+              </div>
+
+              <div id="bupdate">
+                <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
               </div>
             </div>
-        <% end %>
+      <% end %>
+
       </div>
 
       <div id="main_right">

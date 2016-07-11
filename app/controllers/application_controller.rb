@@ -5,17 +5,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def create_notification(to, author, action, trackable)
-    notification = to.notifications.build
-    notification.author = author
-    notification.action = action
-    notification.trackable = trackable
+  def create_notification(to, author, trackable)
+    notification = to.notifications.build(user_id: to.id, author_id: author.id, trackable_id: trackable.id, trackable_type: trackable.title)
     notification.save
   end
 
-  def new_notification
-    notificator = user.followers.pluck(:id)
-    @notification = Notification.build(user_id: notificator, autor_id: current_user.id, )
+  def destroy_notification
+    current_user.notifications.destroy_all
   end
 
   private

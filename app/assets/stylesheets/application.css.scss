@@ -194,7 +194,7 @@ a:hover {
 
 .card {
   background: #ffffff;
-  height: 365px;
+  height: 367px;
   width: 200px;
   position: relative;
   display: block;
@@ -205,10 +205,19 @@ a:hover {
   font-weight: 700;
   z-index: 200;
 
-  position: static;
   top: 25px;
   float: left;
   margin-right: 30px;
+}
+
+.notification {
+  align-items: center;
+  display: flex;
+  font-size: 25px;
+  color: #89BF4A;
+  position: relative;
+  bottom: -45px;
+  right: -81px;
 }
 
 .profile {
@@ -330,13 +339,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1af0f9ff', e
   top: .1rem;
 }
 
-
-
 #bupdate {
   text-align: center;
+  position: inherit;
+  top: -40px;
+
   form.button_to {
     input {
-      //background-color: #1d7f1d;
       //color: white;
       //border-top: 1px solid #006D59;
       //width: 50%;
@@ -347,75 +356,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1af0f9ff', e
       //left: 25%;
       //font-size: .8em;
       //font-weight: 700;
-      //line-height: 34px;
-      //border-radius: 2px;
-      //border-bottom: 1px solid #006D59;
+      //background: -moz-linear-gradient(top, #b9c5dd 0%, #a4b0cb);
+      //-moz-border-radius: 5px;
+      //-moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+      //line-height: 1.42857143;
+      //vertical-align: middle;
+      //-moz-user-select: none;
+      //-ms-user-select: none;
+      //user-select: none;
+      //border-radius: 4px;
+      //background-color: #1D7F1D;
+      //height: 42px;
 
       color: white;
       border-top: 1px solid #006D59;
-      width: 50%;
-      display: block;
-      margin: 0 auto;
-      position: absolute;
-      bottom: -1.75em;
-      left: 25%;
-      font-size: .8em;
       font-weight: 700;
       background: -moz-linear-gradient(top, #b9c5dd 0%, #a4b0cb);
       -moz-border-radius: 5px;
       -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
       line-height: 1.42857143;
-      vertical-align: middle;
-      -ms-touch-action: manipulation;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      border: 1px solid transparent;
       border-radius: 4px;
       background-color: #1D7F1D;
-      color: white;
       height: 42px;
     }
   }
 }
-
-
-/* Follow Button */
-.btn {
-  text-align: center;
-}
-
-a.btn {
-  color: #fffffa;
-  text-decoration: none;
-}
-
-a.btn:hover {
-  text-decoration: none;
-}
-
-a.btn-follow:active {
-  border-bottom: none;
-  border-top: 1px solid #006D59;
-  background: #00896E;
-}
-
-.btn-follow {
-  background: #00936E;
-  height: 32px;
-  width: 50%;
-  display: block;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0.25em;
-  left: 25%;
-  font-size: .8em;
-  font-weight: 700;
-  line-height: 34px;
-  border-radius: 2px;
-  border-bottom: 1px solid #006D59;
-}
-
 
 /* Coded and Designed by Cole Townsend */
 
