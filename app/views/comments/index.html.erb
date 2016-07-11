@@ -1,0 +1,22 @@
+<div class="post">
+  <div class="autor">
+    <b>Author: </b><%= link_to @post.user.name, user_path(@post.user) %><br>
+  </div>
+
+  <div class="post_body">
+    <b>Titile: </b><%= @post.title %><br>
+    <b>Body: </b><%= @post.body %><br>
+  </div>
+
+  <div class="comment">
+    <% @comments.each do |comment| %>
+      <div class="comment_body">
+        <%=  %>
+        <b><%= comment.user.name %>: </b><%= comment.body %>
+        <% if @post.comments.find_by(id: comment.id, user_id: current_user.id) %>
+            <%= button_to "Delete comment", post_comment_path(post_id: @post.id, id: comment.id), method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

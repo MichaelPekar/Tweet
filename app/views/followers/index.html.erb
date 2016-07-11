@@ -1,0 +1,23 @@
+<div class="followers-container">
+  <div class="list">
+    <h2>People you are following:</h2>
+    <% @followeds.each do |followed| %>
+      <div class="user">
+        <%= image_tag followed.avatar.url(:thumb) %>
+        <br>
+        <%= link_to followed.name, user_path(followed) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="list">
+    <h2>Your followers:</h2>
+    <% @followers.each do |follower| %>
+      <div class="user">
+        <%= image_tag follower.avatar.url(:thumb) %>
+        <br>
+        <%= link_to follower.name, user_path(follower) %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,27 +1,98 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Tweet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-    <div id="user_nav">
-      <% if current_user %>
-          Logged in as <%= current_user.email %>.
-          <%= link_to "Log out", log_out_path %>
-      <% else %>
-          <%= link_to "Sign up", sign_up_path %> or
-          <%= link_to "log in", log_in_path %>
-      <% end %>
-    </div>
 
+<div id="container">
+  <div id="header">
+    <head>
+      <title>Tweet</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <div class="logo">
+        <table>
+        <tr>
+          <td><%= image_tag("Logo.png", size: "100") %></td>
+          <td><strong><%= @page_title || "T-W-E-E-T" %></strong></td>
+        </tr>
+        </table>
+      </div>
+
+      <div id="nav">
+        <% if current_user %>
+            <ul>
+              <li><a href="#home"><%= link_to "Home", root_path, method: :get %></a></li>
+              <li><a href="#news"><%= link_to "My ralationship", followers_path, method: :get %></a></li>
+              <li><a href="#contact"><%= link_to "My posts", user_path(id: current_user.id), method: :get %></a></li>
+              <li><a href="#contact"><%= link_to "Users", users_path, method: :get %></a></li>
+              <li style="float:right">
+                <a class="active" href="#about">
+                  <%= link_to "Log out", log_out_path, method: :get %>
+                </a>
+              </li>
+            </ul>
+        <% end %>
+      </div>
+    </head>
+  </div>
+
+  <body class="<%= controller.controller_name %>">
     <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
-<body>
 
-<%= yield %>
+    <div id="main">
+      <div id="main_left">
+        <% if current_user != nil %>
+            <div class="card">
+              <div class="profile">
+                <%= image_tag current_user.avatar.url(:thumb) %>
+                <div class="border"></div>
+              </div>
+              <div class="name"><p><a href="#"><%= current_user.name %></a></p></div>
+              <div class="email"><p><a href="#"><%= current_user.email %></a></p></div>
 
-</body>
-</html>
+              <div class="numbers">
+
+                <table id="stats">
+                  <tbody>
+                  <tr>
+                    <td><%= current_user.posts.count%></td>
+                    <td>POSTS</td>
+                  </tr>
+                  <tr>
+                    <td><%= current_user.followers.count%></td>
+                    <td>FOLLOWERS</td>
+                  </tr>
+                  <tr>
+                    <td><%= current_user.following.count%></td>
+                    <td>FOLLOWED</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="divider"></div>
+              </div>
+
+              <div class="notification">
+                <% if current_user.notifications.count != 0 %>
+                  <%= link_to current_user.notifications.count, root_path, method: :get %>
+                  <%= image_tag("notification.png", size: "30") %>
+                <% end %>
+
+              </div>
+
+              <div id="bupdate">
+                <%= button_to "Update profile", edit_user_path(id: current_user.id), method: :get %>
+              </div>
+            </div>
+      <% end %>
+
+      </div>
+
+      <div id="main_right">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+  <div id="footer">
+    © 2016 MichaelPekar, Inc
+  </div>
+</div>

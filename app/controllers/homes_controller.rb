@@ -1,6 +1,8 @@
 class HomesController < ApplicationController
   before_action :requires_authentication, only: :index
+  after_action :destroy_notification, only: :index
+
   def index
-    @users = User.order(:name)
+    @following = current_user.following
   end
 end

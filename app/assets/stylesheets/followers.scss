@@ -1,0 +1,30 @@
+// Place all the styles related to the Followers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .followers-container {
+    width: 100%;
+    display: -webkit-box;
+
+    .list {
+      text-align: center;
+      border-radius: 10px;
+      padding: 10px;
+      width: 50%;
+      padding-left: 26px;
+      padding-right: 26px;
+
+      .user {
+        text-align: center;
+        background-color: #dde9ff;
+        border-style: groove;
+        border-radius: 10px;
+        margin-bottom: 10PX;
+
+        .image {
+          padding: 10px;
+        }
+      }
+    }
+  }
+

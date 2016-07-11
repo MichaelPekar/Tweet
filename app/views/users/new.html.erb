@@ -1,31 +1,45 @@
-<h1>Sign Up</h1>
+​<div class="session-container">
+ <div id="signup">
+   <%= form_for @user do |f| %>
+     <div class="header">
+       <h3>Sign Up</h3>
+     </div>
 
-<%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-    <p>
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </p>
-    <p class="button"><%= f.submit %></p>
-<% end %>
+     <div class="sep"></div>
+
+     <div class="inputs">
+       <div class="picture">
+         <%= f.file_field :avatar %>
+       </div>
+
+       <div class="field">
+         <%= f.label [:name, @user.errors[:name] ].join(' ') %><br />
+         <%= f.text_field :name %>
+       </div>
+
+       <div class="field">
+         <%= f.label [:email, @user.errors[:email] ].join(' ') %><br />
+         <%= f.text_field :email %>
+       </div>
+
+       <div class="field">
+         <%= f.label [:password, @user.errors[:password] ].join(' ') %><br />
+         <%= f.password_field :password %>
+       </div>
+
+       <div class="field">
+         <%= f.label [:password_confirmation, @user.errors[:password_confirmation] ].join(' ') %><br />
+         <%= f.password_field :password_confirmation %>
+       </div>
+
+       <div class="accept">
+         <%= f.submit "Sign Up" %>
+       </div>
+
+       <div class="link">
+         <%= link_to "Log in", log_in_path, method: :get %>
+       </div>
+     </div>
+   <% end %>
+ </div>
+</div>
